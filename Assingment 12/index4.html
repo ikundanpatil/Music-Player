@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Interactive Student Profile</title>
+    <style>
+      body {
+        font-family: Arial;
+        background: #f0f4f8;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .profile {
+        background: white;
+        padding: 25px;
+        margin: auto;
+        max-width: 350px;
+        border-radius: 12px;
+        box-shadow: 0 0 10px #bbb;
+      }
+
+      .profile img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .highlight {
+        border: 3px solid blue;
+        transform: scale(1.02);
+      }
+
+      input {
+        padding: 8px;
+        margin: 8px;
+      }
+
+      button {
+        padding: 10px 15px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Interactive Student Profile</h2>
+
+    <div class="profile" id="profile">
+      <img
+        src="https://placehold.co/120x120?text=Student"
+        alt="Student Photograph"
+      />
+
+      <h3 id="name">Kundan Patil</h3>
+      <p>Course: BCA</p>
+      <p>Email: student@example.com</p>
+      <p>Contact: 9876543210</p>
+
+      <button id="details">Show Details</button>
+      <p id="info"></p>
+    </div>
+
+    <h3>Student Form</h3>
+    <form id="form">
+      <input
+        type="text"
+        id="studentName"
+        placeholder="Enter your name"
+        required
+      />
+      <br />
+      <button type="submit">Submit</button>
+    </form>
+
+    <p id="count">Characters: 0</p>
+    <p id="keyboard"></p>
+    <p id="windowInfo"></p>
+    <p id="status"></p>
+
+    <script>
+      let profile = document.getElementById("profile");
+      let info = document.getElementById("info");
+      let input = document.getElementById("studentName");
+      let count = 0;
+
+      profile.onclick = function () {
+        info.innerHTML = "Profile Clicked";
+      };
+
+      profile.ondblclick = function () {
+        info.innerHTML = "Profile Double Clicked";
+      };
+
+      profile.onmouseover = function () {
+        profile.classList.add("highlight");
+      };
+
+      profile.onmouseout = function () {
+        profile.classList.remove("highlight");
+      };
+
+      document.getElementById("details").onclick = function () {
+        info.innerHTML =
+          "Name: Kundan Patil | Course: BCA | Email: student@example.com";
+      };
+
+      input.oninput = function () {
+        document.getElementById("count").innerHTML =
+          "Characters: " + input.value.length;
+      };
+
+      input.onfocus = function () {
+        input.style.backgroundColor = "lightyellow";
+      };
+
+      input.onblur = function () {
+        input.style.backgroundColor = "white";
+      };
+
+      input.onkeydown = function (event) {
+        document.getElementById("keyboard").innerHTML =
+          "Key Down: " + event.key;
+
+        if (event.key === "Enter") {
+          document.getElementById("status").innerHTML = "Enter Key Pressed";
+        }
+      };
+
+      input.onkeyup = function (event) {
+        document.getElementById("keyboard").innerHTML = "Key Up: " + event.key;
+      };
+
+      document.getElementById("form").onsubmit = function (event) {
+        event.preventDefault();
+        document.getElementById("name").innerHTML = input.value;
+        document.getElementById("status").innerHTML =
+          "Form Submitted Successfully!";
+      };
+
+      window.onload = function () {
+        document.getElementById("status").innerHTML = "Page Loaded";
+        updateWindow();
+      };
+
+      function updateWindow() {
+        document.getElementById("windowInfo").innerHTML =
+          "Width: " +
+          window.innerWidth +
+          " px | Height: " +
+          window.innerHeight +
+          " px";
+      }
+
+      window.onresize = updateWindow;
+
+      window.onscroll = function () {
+        document.getElementById("status").innerHTML = "Page Scrolled";
+      };
+    </script>
+  </body>
+</html>

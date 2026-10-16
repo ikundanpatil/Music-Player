@@ -1,0 +1,170 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Sora", sans-serif;
+  color: white;
+  background-color: black;
+}
+.music-player {
+  width: 430px;
+  min-height: 760px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 5px solid black;
+  background: radial-gradient(
+    circle at 50% 0%,
+    #d69cff,
+    #6419c5 35%,
+    #08000f 75%
+  );
+  border-radius: 30px;
+}
+.music-player::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.15) 1px,
+    transparent 1px
+  );
+
+  background-size: 4px 4px;
+  opacity: 0.15;
+
+  pointer-events: none;
+}
+.album-section {
+  width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+.album-section img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+.song-info {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.song-info h1 {
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+.song-info p {
+  font-size: 15px;
+  color: #bdb7c5;
+}
+.song-actions {
+  display: flex;
+  gap: 12px;
+}
+.song-actions button {
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+}
+.progress-section {
+  margin-top: 25px;
+}
+#progress {
+  width: 100%;
+  height: 5px;
+  appearance: none;
+  border-radius: 10px;
+  background: #77717d;
+  cursor: pointer;
+}
+#progress::-webkit-slider-thumb {
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: white;
+}
+.time {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  color: #aaa4b2;
+  font-size: 15px;
+}
+.controls {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.controls button {
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+}
+#play {
+  font-size: 65px;
+}
+.bottom-controls {
+  margin-top: 35px;
+  display: flex;
+  justify-content: space-around;
+}
+.bottom-controls button {
+  border: none;
+  background: transparent;
+  color: #c6c0ca;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.75;
+}
+button svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 2;
+}
+
+.controls button svg {
+  width: 38px;
+  height: 38px;
+}
+
+#play svg {
+  width: 58px;
+  height: 58px;
+}
+
+.song-actions button svg {
+  width: 22px;
+  height: 22px;
+}
+
+.bottom-controls button svg {
+  width: 25px;
+  height: 25px;
+}

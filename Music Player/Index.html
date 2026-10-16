@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Player</title>
+    <link rel="stylesheet" href="Style.css" />
+  </head>
+  <body>
+    <div class="music-player">
+      <div class="album-section">
+        <img src="album.jpg" alt="Album Cover" />
+      </div>
+      <div class="song-info">
+        <div>
+          <h1>Bura Din</h1>
+          <p>Seedhe Maut</p>
+        </div>
+        <div class="song-actions">
+          <button>
+            <i data-lucide="heart"></i>
+          </button>
+          <button>
+            <i data-lucide="more-vertical"></i>
+          </button>
+        </div>
+      </div>
+      <div class="progress-section">
+        <input type="range" id="progress" value="0" min="0" max="100" />
+        <div class="time">
+          <span id="current-time">0:00</span>
+          <span id="duration">0:00</span>
+        </div>
+      </div>
+      <div class="controls">
+        <button id="previous">
+          <i data-lucide="skip-back"></i>
+        </button>
+        <button id="play">
+          <i data-lucide="play"></i>
+        </button>
+        <button id="next">
+          <i data-lucide="skip-forward"></i>
+        </button>
+      </div>
+      <div class="bottom-controls">
+        <button><i data-lucide="message-circle"></i></button>
+        <button><i data-lucide="list-music"></i></button>
+        <button><i data-lucide="volume-2"></i></button>
+      </div>
+    </div>
+    <audio id="audio" src="./Album Poster/album1.jpg"></audio>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+    <script src="Script.js"></script>
+  </body>
+</html>

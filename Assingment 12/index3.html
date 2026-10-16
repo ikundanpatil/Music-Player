@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Window Events</title>
+  </head>
+  <body>
+    <h2>Window Events</h2>
+
+    <p id="width"></p>
+    <p id="height"></p>
+    <p id="status"></p>
+
+    <div style="height: 1200px">
+      <p>Scroll down to test the scroll event.</p>
+    </div>
+
+    <script>
+      function updateSize() {
+        document.getElementById("width").innerHTML =
+          "Window Width: " + window.innerWidth + " px";
+
+        document.getElementById("height").innerHTML =
+          "Window Height: " + window.innerHeight + " px";
+      }
+
+      window.onload = function () {
+        updateSize();
+        document.getElementById("status").innerHTML =
+          "Page Loaded Successfully";
+      };
+
+      window.onresize = function () {
+        updateSize();
+        document.getElementById("status").innerHTML = "Window Resized";
+      };
+
+      window.onscroll = function () {
+        document.getElementById("status").innerHTML = "Page Scrolled";
+      };
+    </script>
+  </body>
+</html>

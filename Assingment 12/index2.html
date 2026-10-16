@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Keyboard Events</title>
+  </head>
+  <body>
+    <h2>Keyboard Events</h2>
+    <input type="text" id="input" placeholder="Press any key" />
+
+    <p id="key"></p>
+    <p id="code"></p>
+    <p id="count">Keys Pressed: 0</p>
+    <p id="message"></p>
+
+    <script>
+      let count = 0;
+      let input = document.getElementById("input");
+
+      input.addEventListener("keydown", function (event) {
+        count++;
+
+        document.getElementById("key").innerHTML = "Key Pressed: " + event.key;
+
+        document.getElementById("code").innerHTML = "Key Code: " + event.code;
+
+        document.getElementById("count").innerHTML = "Keys Pressed: " + count;
+
+        if (event.key === "Enter") {
+          document.getElementById("message").innerHTML = "Enter Key Pressed";
+        } else if (event.key === "Escape") {
+          document.getElementById("message").innerHTML = "Escape Key Pressed";
+        } else {
+          document.getElementById("message").innerHTML = "";
+        }
+      });
+    </script>
+  </body>
+</html>
